@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 //SW_상호의배틀필드_1873_D3
-public class Solution_1873_상호의배틀필드_2 {
+public class Solution_1873_상호의배틀필드2 {
 	// 테스트케이스 수 , 높이, 너비
 	static int T, H, W, N;
 	static char[][] map;
