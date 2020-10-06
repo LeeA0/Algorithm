@@ -25,7 +25,7 @@ public class UnionFind {
 		if (px == py) {
 			return;
 		}
-		if (rank[px] > rank[py]) {
+		if (rank[px] < rank[py]) {
 			parents[px] = py;
 		} else {
 			parents[py] = px;
