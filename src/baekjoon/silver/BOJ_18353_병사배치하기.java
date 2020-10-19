@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+//LIS를 이용(DP를 이용한 방법이있고, 나는 이진탐색을 이용)
 //백준_병사배치하기_18353_실버2
 public class BOJ_18353_병사배치하기 {
 	static int N, length;
