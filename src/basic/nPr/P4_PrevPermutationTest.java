@@ -9,7 +9,7 @@ import java.util.Scanner;
  *
  */
 // nPr : nPn에서 n을 r로 보면 똑같다.
-public class P4_NextPermutationTest {
+public class P4_PrevPermutationTest {
 
 	// 1,2,3
 	// 3P2 = 3!/1!= 6
@@ -30,37 +30,22 @@ public class P4_NextPermutationTest {
 		//Arrays.sort(input);
 
 		do {
-			
 			// 첫 순열 출력 필수!!!
 			System.out.println(Arrays.toString(input));
-		} while (nextPermutation(input));
+		} while (prevPermutation(input));
 	}
 
-	private static void permutation(int cnt, int flag) {
-		if (cnt == R) {
-			totalCount++;
-			System.out.println(Arrays.toString(numbers));
-			return;
-		}
-		for (int i = 0; i < N; ++i) {
-			if ((flag & (1 << i)) != 0)
-				continue;
-			numbers[cnt] = input[i];
-			permutation(cnt + 1, flag | (1 << i));// flag는 그대로, 메소드 호출시 전달되는 flag는 연산된 결과
-		}
-	}
-
-	private static boolean nextPermutation(int[] input) {
-		// step1. 꼭대기 찾기
+	private static boolean prevPermutation(int[] input) {
+		// step1. 골짜기 찾기
 		int i = N - 1;
-		while (i > 0 && input[i - 1] >= input[i])// 뒤에서 봤을 때 올라감
+		while (i > 0 && input[i - 1] <= input[i])
 			--i;
 		if (i == 0)
 			return false; // 마지막 순열의 상태이면 다음 순열 없음
 
-		// step2. i-1위치와 교환할 다음 단계 큰 수 뒷쪽에서 찾기
+		// step2. i-1위치와 교환할 다음 단계 작은 수 뒷쪽에서 찾기
 		int j = N - 1;
-		while (input[i - 1] >= input[j])
+		while (i<=j && input[i - 1] <= input[j])
 			--j;
 
 		// step3. i-1위치값과 j위치값 교환
