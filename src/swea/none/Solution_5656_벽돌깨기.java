@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+//SW_벽돌꺠기_5656
 public class Solution_5656_벽돌깨기 {
 
 	static int T, N, W, H, answer;
