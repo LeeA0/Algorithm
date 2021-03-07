@@ -19,22 +19,20 @@ public class Programmers_위장 {
 	}
 
 	static int solution(String[][] clothes) {
-		int answer = 0;
+		int answer = 1;
+		// 종류에 따른 의상 개수 파악을 위한 map선언
 		HashMap<String, Integer> map = new HashMap<>();
 		for (int i = 0; i < clothes.length; i++) {
 			String key = clothes[i][1];
-			map.put(key, map.getOrDefault(key, 0) + 1);
+			// 이미 있는 종류이면 +1을, 아니면 1+1=2를 넣어준다
+			// default가 1인 이유: 해당 종류를 선택하지 않았을 경우의 수를 추가해준다
+			map.put(key, map.getOrDefault(key, 1) + 1);
 		}
-		for (int i = 1; i < (1 << map.size()) - 1; i++) {
-			int temp = 1;
-			for (int j = 0; j < map.size(); j++) {
-				if ((i & (1 << j)) != 0) {
-					temp *= map.get(clothes[j][1]);
-				}
-			}
-			
+		// 경우의 수를 모두 곱해준다
+		for (Integer num : map.values()) {
+			answer *= num;
 		}
-
-		return answer;
+		// 어떤 옷도 고르지 않았을 때의 경우를 뺴준다
+		return answer - 1;
 	}
 }
