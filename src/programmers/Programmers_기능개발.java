@@ -31,14 +31,16 @@ public class Programmers_기능개발 {
 			while (!stack.isEmpty()) {
 				int[] first = stack.peek();
 				int progress = first[1] + day * speeds[first[0]];
-				// 맨 앞의 기능이 완성되었으면 pop하고 배포수를 +1해준다
+				// 맨 앞의 기능이 완성되었으면 pop하고 배포 기능 수를 +1해준다
 				if (progress >= 100) {
 					stack.pop();
 					deploy++;
 				} else {
+					// 맨앞의 기능이 완성되지 않았으면 그 다음을 볼 필요가 없으므로 break
 					break;
 				}
 			}
+			// 오늘 배포했다면 정답 리스트에 배포된 기능 수를 저장한다
 			if (deploy != 0) {
 				answer_list.add(deploy);
 			}
