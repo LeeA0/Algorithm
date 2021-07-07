@@ -10,7 +10,7 @@ public class Programmers_소수찾기_2 {
 		System.out.println(solution(numbers));
 	}
 
-	// subset+순열
+	// 순열
 	// 소수를 중복없이 저장하기위해 treeset을 사용
 	static TreeSet<Integer> primeSave;
 
