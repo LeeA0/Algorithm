@@ -1,5 +1,6 @@
 package programmers.level2;
 
+// Programmers_가장큰정사각형찾기_level2
 public class Programmers_가장큰정사각형찾기 {
 	// bfs를 사용했더니 효율성 시간초과 ㅠ
 	// => 다른방법!!
