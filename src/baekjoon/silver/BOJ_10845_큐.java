@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 //백준_큐_10845_실버4
-public class BOJ_큐_10845 {
+public class BOJ_10845_큐 {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
