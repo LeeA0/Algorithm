@@ -3,7 +3,7 @@ package programmers.level3;
 import java.util.Arrays;
 
 // Programers_야근지수_level3
-public class Programers_야근지수 {
+public class Programmers_야근지수 {
 	public static void main(String[] args) {
 		int n = 3;
 		int[] works = { 4, 3, 3, 3 };
