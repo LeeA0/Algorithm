@@ -8,7 +8,8 @@ public class Programmers_위클리_7주차 {
 	public static void main(String[] args) {
 		int[] enter = { 1, 3, 2 };
 		int[] leave = { 1, 2, 3 };
-		System.out.println(Arrays.toString(solution(enter, leave)));
+		int[] result = solution(enter, leave);
+		System.out.println(Arrays.toString(result));
 	}
 
 	static LinkedList<Integer> peopleInMeetingRoom;
@@ -20,7 +21,7 @@ public class Programmers_위클리_7주차 {
 		enterPersonIdx = 0;
 		leavePersonIdx = 0;
 		meetPeopleNum = new int[enter.length];
-		while (!allPeopleLeave(leave)) {
+		while (!isAllPeopleLeave(leave)) {
 			leavePeople(enter, leave);
 			enterPeople(enter, leave);
 		}
@@ -28,7 +29,7 @@ public class Programmers_위클리_7주차 {
 	}
 
 	public static void enterPeople(int[] enter, int[] leave) {
-		if (canEnterPerson(enter)) {
+		if (isEnterPerson(enter)) {
 			int enterPerson = enter[enterPersonIdx++];
 			if (isPeopleInMeetingRoom()) {
 				meetPeople();
@@ -44,7 +45,7 @@ public class Programmers_위클리_7주차 {
 	}
 
 	public static void leavePeople(int[] enter, int[] leave) {
-		while (!allPeopleLeave(leave) && canLeavePerson(leave[leavePersonIdx])) {
+		while (!isAllPeopleLeave(leave) && isLeavePerson(leave[leavePersonIdx])) {
 			peopleInMeetingRoom.remove((Integer) leave[leavePersonIdx]);
 			leavePersonIdx++;
 		}
@@ -54,15 +55,15 @@ public class Programmers_위클리_7주차 {
 		return peopleInMeetingRoom.size() >= 1;
 	}
 
-	public static boolean canEnterPerson(int[] enter) {
+	public static boolean isEnterPerson(int[] enter) {
 		return enterPersonIdx < enter.length;
 	}
 
-	public static boolean canLeavePerson(int leavePerson) {
+	public static boolean isLeavePerson(int leavePerson) {
 		return peopleInMeetingRoom.contains(leavePerson);
 	}
 
-	public static boolean allPeopleLeave(int[] leave) {
+	public static boolean isAllPeopleLeave(int[] leave) {
 		return leavePersonIdx >= leave.length;
 	}
 
